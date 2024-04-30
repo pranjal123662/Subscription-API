@@ -7,6 +7,9 @@ COPY . .
 # Clone your git repository
 RUN git clone https://github.com/pranjal123662/Subscription-API.git
 
+# Navigate into the cloned directory
+WORKDIR /app/Subscription-API
+
 # Build the TwoDB app
 RUN go build -o Subscription .
  
