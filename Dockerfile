@@ -4,13 +4,14 @@ FROM golang:latest
 # Set the working directory inside the container
 WORKDIR /app
 
-# Copy the local package files to the container's workspace
-COPY . .
 # Clone your git repository
 RUN git clone https://github.com/pranjal123662/Subscription-API.git
 
 # Navigate into the cloned directory
 WORKDIR /app/Subscription-API
+
+# Copy the local package files to the container's workspace
+COPY . .
 
 # Build the TwoDB app
 RUN go build -o Subscription .
