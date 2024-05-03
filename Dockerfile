@@ -9,7 +9,8 @@ RUN git clone https://github.com/pranjal123662/Subscription-API.git
 
 # Navigate into the cloned directory
 WORKDIR /app/Subscription-API
-
+# Copy a file that changes frequently to bust the cache
+COPY ./dummy.txt .
 # Copy the local package files to the container's workspace
 COPY . .
 
