@@ -1,14 +1,13 @@
 # Use the official golang image as a base image
 FROM golang:latest
-
 # Set the working directory inside the container
-WORKDIR /app
+WORKDIR /app-$(date +%s)
 
 # Clone your git repository
-RUN git clone https://github.com/pranjal123662/Subscription-API.git
+RUN git clone https://github.com/pranjal123662/Subscription-API.git /app-$(date +%s)/Subscription-API            
 
-#Navigate to working directory
-WORKDIR /app/Subscription-API/
+# Navigate into the cloned directory
+WORKDIR /app-$(date +%s)/Subscription-API
 # Copy the local package files to the container's workspace
 COPY . .
 
