@@ -6,19 +6,14 @@ WORKDIR /app
 
 # Clone your git repository
 RUN git clone https://github.com/pranjal123662/Subscription-API.git
-
-# Navigate into the cloned directory
-WORKDIR /app/Subscription-API
-# Copy a file that changes frequently to bust the cache
-COPY ./dummy.txt .
 # Copy the local package files to the container's workspace
 COPY . .
 
 # Build the TwoDB app
-RUN go build -o Subscription .
+RUN go build main .
  
 # Expose port 7456 to the outside world
 EXPOSE 7689
 
 # Command to run the executable
-CMD ["nohup", "./Subscription", "&"]
+CMD ["nohup", "./main", "&"]
