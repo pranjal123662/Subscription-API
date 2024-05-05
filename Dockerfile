@@ -7,10 +7,11 @@ WORKDIR /app-$(date +%s)
 RUN git clone https://github.com/pranjal123662/Subscription-API.git /app-$(date +%s)/Subscription-API            
 
 # Navigate into the cloned directory
-WORKDIR /app-$(date +%s)/Subscription-API
-# Copy the local package files to the container's workspace
-COPY . .
 
+# Copy the local package files to the container's workspace
+COPY . /Subscription-API
+
+WORKDIR /app-$(date +%s)/Subscription-API
 # Expose port 7456 to the outside world
 EXPOSE 7689
 
