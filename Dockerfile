@@ -11,9 +11,6 @@ WORKDIR /app-$(date +%s)/Subscription-API
 # Copy the local package files to the container's workspace
 COPY . .
 
-# Build the TwoDB app
-RUN go build main.go
- 
 # Expose port 7456 to the outside world
 EXPOSE 7689
 
