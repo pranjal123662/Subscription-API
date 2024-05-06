@@ -1,17 +1,17 @@
 # Use the official golang image as a base image
 FROM golang:latest
 # Set the working directory inside the container
-WORKDIR /app-$(date +%s)
+WORKDIR /app
 
 # Clone your git repository
-RUN git clone https://github.com/pranjal123662/Subscription-API.git /app-$(date +%s)/Subscription-API            
+RUN git clone https://github.com/pranjal123662/Subscription-API.git 
 
 # Navigate into the cloned directory
+WORKDIR /app/Subscription-API
 
 # Copy the local package files to the container's workspace
-COPY . /Subscription-API
+COPY . .
 
-WORKDIR /app-$(date +%s)/Subscription-API
 # Expose port 7456 to the outside world
 EXPOSE 7689
 
