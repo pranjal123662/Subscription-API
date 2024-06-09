@@ -36,6 +36,6 @@ func Sendnotification(w http.ResponseWriter, r *http.Request) {
 	for _, data := range result {
 		smtp.SendMail(fmt.Sprintf("%s:%d", smtpHost, smtpPort), auth, senderEmail, []string{data["email"].(string)}, []byte(message))
 	}
-	sendData := model.EncodeData{Code: "200", Message: "SuccessFully send the message to the user"}
+	sendData := model.EncodeData{Code: "200", Message: "SuccessFully send the message to the chutiya"}
 	json.NewEncoder(w).Encode(sendData)
 }
